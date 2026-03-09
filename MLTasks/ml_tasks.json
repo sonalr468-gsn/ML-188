@@ -30,3 +30,33 @@
         "output": "Return dict containing loss_history, val_loss_history, learned_parameters, and final evaluation metrics."
     }
 }
+{
+    "series": "Linear Regression",
+    "level": 3,
+    "id": "linreg_lvl3_poly_adam_regularized",
+    "algorithm": "Polynomial Regression (Elastic Net + Adam + GPU)",
+    "description": "Polynomial regression with combined L1/L2 regularization using torch.nn and torch.optim.Adam; device agnostic training.",
+    "interface_protocol": "pytorch_task_v1",
+    "requirements": {
+        "math": "Define Elastic Net objective: J(θ) + λ1∑|θ_j| + λ2∑θ_j².",
+        "data": "Synthetic nonlinear dataset: y = 0.5x^3 − x^2 + noise. Generate polynomial features manually.",
+        "implementation": "Use torch.nn.Linear for regression, torch.optim.Adam for optimization, and ensure model works on both CPU and CUDA.",
+        "visualization": "Save visualization of model predictions vs ground truth as 'linreg_lvl3_poly_fit.png'.",
+        "validation": "Compare train and validation losses across epochs and ensure validation loss does not diverge significantly from training loss."
+    }
+}
+{
+    "series": "Logistic Regression",
+    "level": 2,
+    "id": "logreg_lvl2_multiclass_softmax_adam",
+    "algorithm": "Softmax Regression (Multiclass)",
+    "description": "Multiclass logistic regression using torch.nn.Module and CrossEntropyLoss with Adam optimizer.",
+    "interface_protocol": "pytorch_task_v1",
+    "requirements": {
+        "math": "Explain softmax function and cross entropy loss in LaTeX",
+        "data": "Synthetic 3-class dataset using Gaussian blobs.",
+        "implementation": "Use nn.Module, torch.optim.Adam, and CrossEntropyLoss.",
+        "visualization": "Plot decision boundary contour and save as 'logreg_lvl2_boundary.png'.",
+        "validation": "Macro-F1 score > 0.85 on validation set."
+    }
+}
