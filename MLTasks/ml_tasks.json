@@ -14,3 +14,19 @@
         "output": "Return dict containing loss_history, validation_loss_history, learned_parameters, and evaluation metrics."
     }
 }
+{
+    "series": "Linear Regression",
+    "level": 1,
+    "id": "linreg_lvl1_batchgd_regularization",
+    "algorithm": "Linear Regression (Batch Gradient Descent with L2 Regularization)",
+    "description": "Implement Univariate Linear Regression using ONLY PyTorch tensors and Batch Gradient Descent with L2 regularization. Do NOT use torch.nn, torch.optim, or autograd. Write everything in a single task.py file with a complete main() that trains, evaluates, and validates.",
+    "interface_protocol": "pytorch_task_v1",
+    "requirements": {
+        "math": "Docstring must contain h_theta(x) = theta_0 + theta_1*x and the regularized MSE cost function J(theta) = (1/n) * Σ(y - y_pred)^2 + lambda * theta_1^2.",
+        "data": "Synthetic dataset: y = -2x + 5 + noise. Generate 1000 samples with x sampled uniformly between -10 and 10. Split dataset into 80% train and 20% validation.",
+        "implementation": "Use PyTorch tensors only. Implement Batch Gradient Descent manually and include L2 regularization in the gradient update. Parameter update rule: theta = theta - lr * grad. Do NOT use torch.nn, torch.optim, or autograd.",
+        "evaluation": "The evaluate() function must compute MSE, R2 score, and parameter accuracy (how close theta_0 is to 5.0 and theta_1 is to -2.0) on the VALIDATION split.",
+        "main_block": "The if __name__ == '__main__' block must: train the model using batch gradient descent, evaluate on both training and validation sets, print train/val MSE and R2 scores, display learned parameters vs true parameters, and assert R2 > 0.9 on validation and parameter error < 1.0.",
+        "output": "Return dict containing loss_history, val_loss_history, learned_parameters, and final evaluation metrics."
+    }
+}
