@@ -1,0 +1,16 @@
+{
+    "series": "Linear Regression",
+    "level": 2,
+    "id": "linreg_lvl2_minibatch_momentum",
+    "algorithm": "Linear Regression (Mini-batch Gradient Descent with Momentum)",
+    "description": "Implement univariate linear regression using PyTorch tensors and mini-batch gradient descent with momentum. The model should learn parameters for a synthetic dataset and evaluate its performance using regression metrics.",
+    "interface_protocol": "pytorch_task_v1",
+    "requirements": {
+        "math": "Docstring must include the hypothesis function h_theta(x) = theta_0 + theta_1*x and the Mean Squared Error (MSE) loss formula. Also include the momentum update rule v = beta*v + grad and theta = theta - lr * v.",
+        "data": "Synthetic dataset generated using y = -1.5x + 4 + noise where x is sampled uniformly between -10 and 10. Use 1000 samples with an 80/20 train-validation split.",
+        "implementation": "Use PyTorch tensors and manual gradient calculations. Implement mini-batch gradient descent with momentum (velocity term). Do not use torch.nn.Linear or torch.optim.",
+        "evaluation": "The evaluate() function must compute MSE, MAE (Mean Absolute Error), and R2 score on the VALIDATION split.",
+        "main_block": "The if __name__ == '__main__' block must: train the model, evaluate on both training and validation sets, print metrics clearly, display learned parameters vs true parameters (theta_0 ≈ 4, theta_1 ≈ -1.5), and assert validation R2 > 0.9 and parameter error < 1.0.",
+        "output": "Return dict containing loss_history, validation_loss_history, learned_parameters, and evaluation metrics."
+    }
+}
