@@ -60,3 +60,58 @@
         "validation": "Macro-F1 score > 0.85 on validation set."
     }
 }
+
+    {
+        "series": "Neural Networks (MLP)",
+        "level": 1,
+        "id": "mlp_lvl1_numpy_spiral",
+        "algorithm": "MLP (Manual Backprop)",
+        "description": "2-layer MLP with manual backprop (no autograd) trained on a 2D spiral classification dataset.",
+        "interface_protocol": "pytorch_task_v1",
+        "requirements": {
+            "math": "Include full chain rule derivations for hidden layer gradients.",
+            "data": "Generate synthetic spiral dataset (non-linearly separable).",
+            "validation": "Achieve > 0.85 classification accuracy."
+        }
+    },
+    {
+        "series": "Neural Networks (MLP)",
+        "level": 2,
+        "id": "mlp_lvl2_fashion_mnist",
+        "algorithm": "MLP (nn.Module + Autograd)",
+        "description": "MLP classifier on Fashion-MNIST dataset with optional dropout and batch normalization.",
+        "interface_protocol": "pytorch_task_v1",
+        "requirements": {
+            "data": "Use torchvision.datasets.FashionMNIST.",
+            "features": "Support toggling dropout and batchnorm.",
+            "validation": "Achieve > 0.85 test accuracy within a few epochs."
+        }
+    },
+    {
+        "series": "Neural Networks (MLP)",
+        "level": 3,
+        "id": "mlp_lvl3_optimizer_comparison",
+        "algorithm": "MLP (Optimizers + Scheduler)",
+        "description": "Train MLP using different optimizers (SGD, Adam, RMSprop) and compare convergence with LR scheduler and gradient clipping.",
+        "interface_protocol": "pytorch_task_v1",
+        "requirements": {
+            "experiment": "Train same model with 3 optimizers.",
+            "features": "Include LR scheduler and gradient clipping.",
+            "artifacts": "Log loss curves for each optimizer.",
+            "validation": "Demonstrate at least one optimizer converges faster or better."
+        }
+    },
+    {
+        "series": "Neural Networks (MLP)",
+        "level": 4,
+        "id": "mlp_lvl4_feature_engineering",
+        "algorithm": "MLP (Feature Engineering + Hyperparameter Search)",
+        "description": "Perform hyperparameter search on an MLP with engineered features (polynomial features or feature scaling variants).",
+        "interface_protocol": "pytorch_task_v1",
+        "requirements": {
+            "features": "Add engineered features (e.g., polynomial expansion or normalization variants).",
+            "search": "Grid/random search over depth, width, learning rate.",
+            "output": "Return leaderboard in outputs['metrics']['sweep'].",
+            "validation": "Best configuration outperforms baseline without feature engineering."
+        }
+    }
